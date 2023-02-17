@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TabBarView<TabBarRouter: Router>: View where TabBarRouter.Route == TabBarRoute {
     let router: TabBarRouter
-    @State private var tabSelection = 0
+    @State private var tabSelection = 2
     
     var body: some View {
         TabView(selection: $tabSelection) {
@@ -23,7 +23,7 @@ struct TabBarView<TabBarRouter: Router>: View where TabBarRouter.Route == TabBar
             }.tag(1)
             
             router.viewFor(route: .loginView(data: "Login")) {
-                LoginView(tabSelection: Binding<Int>(get: { self.tabSelection }, set: { self.tabSelection = $0 }), text: "Login")
+                LoginView(tabSelection: 2, text: "Login")
             }
             .tabItem {
                 Label("Login", systemImage: "square.and.pencil")

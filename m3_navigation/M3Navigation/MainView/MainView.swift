@@ -23,7 +23,7 @@ struct MainView<MainRouter: Router>: View where MainRouter.Route == MainRoute {
                     }
                     .foregroundColor(.blue)
                     .sheet(isPresented: $showingSheet) {
-                        LoginView(tabSelection: Binding<Int>(get: { self.tabSelection }, set: { self.tabSelection = $0 }), text: "Login")
+                        LoginView(tabSelection: 2, text: "Login")
                     }
             )
         }
@@ -31,7 +31,7 @@ struct MainView<MainRouter: Router>: View where MainRouter.Route == MainRoute {
 }
 
 struct LoginView: View {
-@Binding var tabSelection: Int
+    var tabSelection: Int
     let text: String
     
   var body: some View {
@@ -39,10 +39,6 @@ struct LoginView: View {
           Text(text)
               .font(.title)
               .padding()
-          Button("Login") {
-              self.tabSelection = 0
-          }
-          .padding()
       }
   }
 }

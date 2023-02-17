@@ -12,7 +12,7 @@ struct MainRouter: Router {
     switch route {
     case let .loginView(data):
       if usingNavigation {
-        return AnyView(NavigationLink(destination: LoginView(text: data)) {
+          return AnyView(NavigationLink(destination: LoginView(tabSelection: 2, text: data)) {
           content()
         })
       } else {
